@@ -12,12 +12,13 @@ const image = require('./controllers/image');
 
 const db = knex({
     client: 'pg',
-    connection: {
-      host: process.env.hostname,
-      username: process.env.username,
-      password: process.env.password,
-      database: process.env.database
-    }
+    connection: process.env.PG_CONNECTION_STRING,
+    searchPath: ['knex', 'public']
+    //   host: process.env.hostname,
+    //   username: process.env.username,
+    //   password: process.env.password,
+    //   database: process.env.database
+    
   });
 
 // We use this to select the data from the database(db) and console.log to check that it's connected.
@@ -60,9 +61,10 @@ app.use(cors());
 //         }
 //     ]
 // }
-
+const string = process.env.PG_CONNECTION_STRING
 app.get('/', (req,res)=> {
     res.json('hi');
+    console.log(`PGSTRING: ${string}`)
     // We no longer need this bc we replaced database with db
     // res.send(database.users);
 });
