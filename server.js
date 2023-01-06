@@ -61,10 +61,9 @@ app.use(cors());
 //         }
 //     ]
 // }
-const string = process.env.PG_CONNECTION_STRING
+
 app.get('/', (req,res)=> {
     res.json('hi');
-    console.log(`PGSTRING: ${string}`)
     // We no longer need this bc we replaced database with db
     // res.send(database.users);
 });
