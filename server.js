@@ -13,11 +13,16 @@ const image = require('./controllers/image');
 const db = knex({
     client: 'pg',
     connection: {
-      hostname : 'dpg-cerltd4gqg4de230mso0-a',
-      port : 5432,
-      user : 'gabrielacastro',
-      password : 'X7g86LablzzuUXHebuJaRjVVkSka7ZGx',
-      database : 'smartbrain_bv20'
+      hostname: process.env.hostname,
+    //   hostname : 'dpg-cerltd4gqg4de230mso0-a',
+    //   port: process.env.port,
+    //   port : 5432,
+      username: process.env.username,
+    //   username : 'gabrielacastro',
+      password: process.env.password,
+    //   password : 'X7g86LablzzuUXHebuJaRjVVkSka7ZGx',
+      database: process.env.database
+    //   database : 'smartbrain_bv20'
     }
   });
 
