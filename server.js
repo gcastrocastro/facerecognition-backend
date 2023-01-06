@@ -13,12 +13,7 @@ const image = require('./controllers/image');
 const db = knex({
     client: 'pg',
     connection: process.env.PG_CONNECTION_STRING,
-    searchPath: ['knex', 'public']
-    //   host: process.env.hostname,
-    //   username: process.env.username,
-    //   password: process.env.password,
-    //   database: process.env.database
-    
+    searchPath: ['knex', 'public']    
   });
 
 // We use this to select the data from the database(db) and console.log to check that it's connected.
@@ -75,7 +70,7 @@ app.post('/signin', (req, res) => (signin.handleSignin(req, res, db, bcrypt)))
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
 app.get('/profile/:id', (req, res) => {profile.handleProfileGet(req, res, db)})
 app.put('/image', (req, res) => (image.handleImage(req, res, db)))
-app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)})
+app.post('/imageurl', (req, res) => {image.handleApiCall(req, res)})
 
 app.listen(process.env.PORT || 3000, ()=> {
     console.log(`app is running on ${process.env.PORT}`);
