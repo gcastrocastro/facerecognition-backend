@@ -16,7 +16,7 @@ metadata.set("authorization", "Key process.env.apiKey");
 const handleApiCall = (req, res) => {
     stub.PostModelOutputs(
     {
-        model_id: "174702155a6043c9932b045e8e00e6e2",
+        model_id: "b8fa05a04e0649a1a9d3186b246a59b3",
         inputs: [{data: {image: {url: req.body.input}}}]
     },
     metadata,
