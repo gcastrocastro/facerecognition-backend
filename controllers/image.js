@@ -3,7 +3,7 @@ const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc");
 const stub = ClarifaiStub.grpc();
 
 const metadata = new grpc.Metadata();
-metadata.set("authorization", "Key 4cd4379a9d5f4d0d83e258446c340baa");
+metadata.set("authorization", "Key process.env.apiKey");
 
 // const Clarifai = require('clarifai');
 
@@ -16,7 +16,7 @@ const handleApiCall = (req, res) => {
   stub.PostModelOutputs(
     {
         // This is the model ID of a publicly available General model. You may use any other public or custom model ID.
-        model_id: "53e1df302c079b3db8a0a36033ed2d15",
+        model_id: "5e026c5fae004ed4a83263ebaabec49e",
         inputs: [{data: {image: {url: req.body.input}}}]
     },
     metadata,
@@ -35,7 +35,7 @@ const handleApiCall = (req, res) => {
         for (const c of response.outputs[0].data.concepts) {
             console.log(c.name + ": " + c.value);
         }
-        res.json(response);
+        res.json(response.outputs[0]);
     }
   )
 };
