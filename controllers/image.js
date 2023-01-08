@@ -35,7 +35,7 @@ const handleApiCall = (req, res) => {
         for (const c of response.outputs[0].data.concepts) {
             console.log(c.name + ": " + c.value);
         }
-        res.json(response.outputs[0]);
+        res.json(response.outputs[0].data.concepts);
     }
   )
 };
