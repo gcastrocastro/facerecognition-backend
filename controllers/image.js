@@ -17,7 +17,7 @@ const app = new Clarifai.App({
 //     stub.PostModelOutputs(
 //     {
 //         // This is the model ID of a publicly available General model. You may use any other public or custom model ID.
-//         model_id: "6dc7e46bc9124c5c8824be4822abe105",
+//         model_id: "53e1df302c079b3db8a0a36033ed2d15",
 //         inputs: [{data: {image: {url: req.body.input}}}]
 //     },
 //     metadata,
@@ -41,7 +41,7 @@ const app = new Clarifai.App({
 
 const handleApiCall = (req, res) => {
   app.models
-    .predict('53e1df302c079b3db8a0a36033ed2d15', req.body.input)
+    .predict('6dc7e46bc9124c5c8824be4822abe105', req.body.input)
     .then(data => {
         console.log(data);
         res.json(data);
