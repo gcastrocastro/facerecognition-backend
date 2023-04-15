@@ -11,23 +11,6 @@ const handleRegister = (req, res, db, bcrypt) => {
     // This is the synchronous way of storing a hash of a password
     const hash = bcrypt.hashSync(password);
 
-
-    // This is the asynchronous way of storing a hash of a password
-    // bcrypt.hash(password, null, null, function(err, hash) {
-    //     // Store hash in your password DB.
-    //     // console.log(hash), you will see a randomized list of characters that represents the password
-    // });
-
-
-    // This was what we used before including knex/db below;
-    // database.users.push({
-    //         id: '125',
-    //         name: name,
-    //         email: email,
-    //         entries: 0,
-    //         joined: new Date()
-    // })
-
     db.transaction(trx => {
         trx.insert({
             hash: hash,

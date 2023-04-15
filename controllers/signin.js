@@ -19,19 +19,6 @@ const handleSignin = (req,res, db, bcrypt)=> {
             }
         })
     .catch(err => res.status(400).json('wrong credentials'))
-
-    // in order to use req.body, we need to use bodyparser in order to not get an error
-    // if (req.body.email === database.users[0].email && 
-    //     req.body.password === database.users[0].password) {
-    //         res.json('success');
-    //     } else {
-    //         res.status(400).json('error logging in');
-    //     }
-
-    // res.send('signin');
-    // res.json('signin');
-    // using json instead of send includes some added features, so we receive a json string this way
-    
 }   
 
 module.exports = {
